@@ -15,10 +15,10 @@ public class TempConvert {
 		System.out.print("is the temperature in (C)elsius or (F)ahrenheit? ");
 		String measureBy = input.next();
 
-		if (measureBy.equals("F") || measureBy.equals("f")) {
+		if (measureBy.equalsIgnoreCase("F")) {
 			String tempConverted = String.valueOf(fahrenheitConversion(tempIn));
 		System.out.print(tempIn + "F is " + tempConverted + "C");
-		} else if (measureBy.equals("C") || measureBy.equals("c")) {
+		} else if (measureBy.equalsIgnoreCase("C")) {
 			String tempConverted = String.valueOf(celsiusConversion(tempIn));
 			System.out.print(tempIn + "C is " + tempConverted + "F");
 		}

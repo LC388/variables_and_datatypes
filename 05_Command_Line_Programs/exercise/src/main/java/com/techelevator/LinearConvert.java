@@ -13,10 +13,10 @@ public class LinearConvert {
 		System.out.print("is the measurement in (m)eters or (f)eet? ");
 		String measureBy = input.next();
 
-		if (measureBy.equals("M") || measureBy.equals("m")) {
+		if (measureBy.equalsIgnoreCase("M")) {
 			String lengthConverted= String.valueOf(meterConversion(length));
 			System.out.print(length + "m is " + lengthConverted + "f");
-		} else if (measureBy.equals("F") || measureBy.equals("f")) {
+		} else if (measureBy.equalsIgnoreCase("F")) {
 			String lengthConverted = String.valueOf(feetConversion(length));
 			System.out.print(length + "f is " + lengthConverted + "m");
 		}
