@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -16,8 +17,14 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
-	}
+
+		List<String> array2List = new ArrayList<String>();
+
+			for (String input: stringArray){
+				array2List.add(input);
+			}
+			return array2List;
+		}
 
 	/*
 	 Given a list of Strings, return an array containing the same Strings in the same order
@@ -26,7 +33,10 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+
+		String[] list2Array = stringList.toArray(new String[stringList.size()]);
+
+		return list2Array;
 	}
 
 	/*
@@ -37,7 +47,15 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+
+		List<String> noFourLetter = new ArrayList<String>();
+
+		for (String input: stringArray){
+			if (input.length() != 4){
+				noFourLetter.add(input);
+			}
+		} return noFourLetter;
+
 	}
 
 	/*
@@ -47,7 +65,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List <Double> half = new ArrayList<Double>();
+
+		for (Integer divided : intArray) {
+			half.add(divided/2.0);
+		}
+		return half;
 	}
 
 	/*
@@ -57,7 +80,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		return Collections.max(integerList);
 	}
 
 	/*
@@ -67,7 +90,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List <Integer> odds = new ArrayList<Integer>();
+
+		for (Integer odd : integerArray) {
+			if (odd % 2 != 0){
+				odds.add(odd);
+			}
+		} return odds;
 	}
 
 	/*
@@ -78,7 +107,9 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		if (Collections.frequency(integerList, intToFind) > 1){
+			return true;
+		} return false;
 	}
 
 	/*
@@ -94,9 +125,31 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
-	}
+		List<String> fbList = new ArrayList<String>();
 
+		for (Integer check : integerArray) {
+			boolean divisibleBy3 = (check % 3 == 0);
+			boolean divisibleBy5 = (check % 5 == 0);
+
+			String beeSoda = "";
+
+			if (divisibleBy3) {
+				beeSoda += "Fizz";
+			}
+
+			if (divisibleBy5) {
+				beeSoda += "Buzz";
+			}
+
+			if (beeSoda.equals("")) {
+				beeSoda += Integer.toString(check);
+			}
+			
+			fbList.add(beeSoda);
+		}
+
+		return fbList;
+	}
 	/*
 	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
 	 by the first element of the second. Continue interleaving the elements until all elements have been interwoven.
@@ -105,7 +158,18 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+
+		List<Integer> woven = new ArrayList<Integer>();
+
+		for (int i = 0; i < Math.max(listOne.size(), listTwo.size()); i++) {
+			if ( i < listOne.size()){
+				woven.add(listOne.get(i));
+			}
+			if ( i < listTwo.size()){
+				woven.add(listTwo.get(i));
+			}
+
+		} return woven;
 	}
 
 }
