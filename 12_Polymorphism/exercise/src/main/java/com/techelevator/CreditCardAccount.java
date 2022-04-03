@@ -34,7 +34,6 @@ public class CreditCardAccount implements Accountable {
 
     @Override
     public int getBalance() {
-        debt *= -1;
-        return debt;
+        return -debt;
     }
 }
